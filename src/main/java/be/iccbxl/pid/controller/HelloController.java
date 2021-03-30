@@ -1,11 +1,11 @@
-package be.iccbxl.pid.controllers;
+package be.iccbxl.pid.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class HelloControler {
+public class HelloController {
 
     @GetMapping("/")
     public String index(){
