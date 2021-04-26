@@ -1,9 +1,13 @@
 package be.iccbxl.pid.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +19,9 @@ public class Locality {
     private String postalCode;
     private String locality;
 
+    @OneToMany
+    private List<Location> locations = new ArrayList<>();
+
     protected Locality(){};
 
     public Locality(String postalCode, String locality){
@@ -22,18 +29,46 @@ public class Locality {
         this.locality = locality;
     }
 
-    public String getLocality() {
-        return locality;
+    public Long getId() {
+        return id;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public String getPostalCode() {
         return postalCode;
     }
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
 
+    public String getLocality() {
+        return locality;
+    }
     public void setLocality(String locality) {
         this.locality = locality;
     }
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+    public Locality addLocation(Location location){
+        if(this.locations.contains(location)){
+            this.locations.add(location);
+            location.setLocality(this);
+        }
+        return this;
+    }
+    public Locality removeLocation(Location location){
+        if(this.locations.contains(location)){
+            this.locations.remove(location);
+                if(location.getLocality().equals(this)){
+                    location.setLocality(null);
+                }
+        }
+
+        return this;
     }
 
     @Override
