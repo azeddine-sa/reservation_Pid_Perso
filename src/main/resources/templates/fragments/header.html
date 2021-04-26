@@ -23,6 +23,15 @@
             <li th:classappend="${module == 'artists' ? 'active' : ''}">
               <a href="#" th:href="@{/artists}">Artists</a>
             </li>
+            <li th:classappend="${module == 'roles' ? 'active' : ''}">
+              <a href="#" th:href="@{/roles}">Roles</a>
+            </li>
+            <li th:classappend="${module == 'localities' ? 'active' : ''}">
+              <a href="#" th:href="@{/localities}">Localities</a>
+            </li>
+            <li th:classappend="${module == 'types' ? 'active' : ''}">
+              <a href="#" th:href="@{/types}">Types</a>
+            </li>
           </ul>
         </div>
       </div>

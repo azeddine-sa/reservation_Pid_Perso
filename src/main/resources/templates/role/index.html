@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.mx/thymeleaf/layout"
+ layout:decorate="~{layouts/main}">
+    <head>
+        <title>Liste des rôles</title>
+    </head>
+    <body>
+        <div class="container">
+            <div layout:fragment="content">
+                <h1 th:text="${title}">Liste des rôles</h1>
+        
+                <ul th:unless="${#lists.isEmpty(roles)}">
+                    <li th:each="role : ${roles}" th:text="${role.role}">Artists</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
