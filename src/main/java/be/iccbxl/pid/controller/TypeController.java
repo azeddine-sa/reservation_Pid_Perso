@@ -19,6 +19,7 @@ public class TypeController {
     @GetMapping("/types")
     public String index2(Model model){
         List<Type> types = service.getAllTypes();
+        
         model.addAttribute("types", types);
         model.addAttribute("title", "Liste des types");
         return "type/index";
