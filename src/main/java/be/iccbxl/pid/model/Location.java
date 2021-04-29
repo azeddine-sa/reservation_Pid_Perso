@@ -30,7 +30,7 @@ public class Location {
     private String website;
     private String phone;
 
-    protected Location(){};
+    protected Location(){}
 
     public Location(String slug, Locality locality, String designation, String adress, String website, String phone){
         Slugify slg = new Slugify();
@@ -96,6 +96,5 @@ public class Location {
     public String toString() {
         return super.toString();
     }
-
-    
+   
 }
