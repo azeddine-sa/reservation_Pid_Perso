@@ -29,7 +29,7 @@ public class TypeService {
         typeRepository.save(type);
     }
 
-    public void updateType(Type type){
+    public void updateType(String id, Type type){
         typeRepository.save(type);
     }
 

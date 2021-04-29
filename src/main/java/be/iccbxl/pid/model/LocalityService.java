@@ -29,7 +29,7 @@ public class LocalityService {
         localityRepository.save(locality);
     }
 
-    public void updateLocality(Locality locality){
+    public void updateLocality(String id, Locality locality){
         localityRepository.save(locality);
     }  
     

@@ -29,7 +29,7 @@ public class ArtistService {
         artistRepository.save(artist);
     }
 
-    public void updateArtist(Artist artist){
+    public void updateArtist(String id, Artist artist){
         artistRepository.save(artist);
     }
 

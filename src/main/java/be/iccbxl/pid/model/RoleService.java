@@ -29,7 +29,7 @@ public class RoleService {
         roleRepository.save(role);
     }
 
-    public void updateRole(Role role){
+    public void updateRole(String id, Role role){
         roleRepository.save(role);
     }
 
