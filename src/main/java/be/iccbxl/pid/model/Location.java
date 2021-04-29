@@ -25,21 +25,25 @@ public class Location {
     @JoinColumn(name="locality_id", nullable = false)
     private Locality locality;
 
+    // @OneToMany(targetEntity=Locality.class, mappedBy="location", cascade = CascadeType.ALL)
+    // private List<Representation> representations = new ArrayList<>();
+
+
     private String designation;
-    private String adress;
+    private String address;
     private String website;
     private String phone;
 
     protected Location(){}
 
-    public Location(String slug, Locality locality, String designation, String adress, String website, String phone){
+    public Location(String slug, Locality locality, String designation, String address, String website, String phone){
         Slugify slg = new Slugify();
         
         this.slug = slg.slugify(designation);
         
         this.locality = locality;
         this.designation = designation;
-        this.adress = adress;
+        this.address = address;
         this.website = website;
         this.phone = phone;
     }
@@ -60,11 +64,11 @@ public class Location {
         this.locality.addLocation(this);
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getDesignation() {

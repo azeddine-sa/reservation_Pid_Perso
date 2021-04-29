@@ -8,6 +8,6 @@ public interface LocationRepository extends CrudRepository<Location, Long>{
     Location findById(long id);
 
     List<Location> findByDesignation(String designation);
-    List<Location> findByAdress(String adress);
+    List<Location> findByAddress(String address);
     List<Location> findByLocality(Locality locality);
 }

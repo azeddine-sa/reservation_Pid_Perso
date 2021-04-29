@@ -20,7 +20,7 @@ public class Locality {
     private String postalCode;
     private String locality;
 
-    @OneToMany(targetEntity=Locality.class, mappedBy="locality", cascade = CascadeType.ALL)
+    @OneToMany(targetEntity=Location.class, mappedBy="locality", cascade = CascadeType.ALL)
     private List<Location> locations = new ArrayList<>();
 
     protected Locality(){}
