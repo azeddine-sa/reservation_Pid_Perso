@@ -3,6 +3,7 @@ package be.iccbxl.pid.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,10 +20,10 @@ public class Locality {
     private String postalCode;
     private String locality;
 
-    @OneToMany
+    @OneToMany(targetEntity=Locality.class, mappedBy="locality", cascade = CascadeType.ALL)
     private List<Location> locations = new ArrayList<>();
 
-    protected Locality(){};
+    protected Locality(){}
 
     public Locality(String postalCode, String locality){
         this.postalCode = postalCode;
@@ -54,7 +55,7 @@ public class Locality {
         return locations;
     }
     public Locality addLocation(Location location){
-        if(this.locations.contains(location)){
+        if(!this.locations.contains(location)){
             this.locations.add(location);
             location.setLocality(this);
         }
