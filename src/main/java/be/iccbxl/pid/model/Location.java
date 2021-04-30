@@ -1,5 +1,8 @@
 package be.iccbxl.pid.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.github.slugify.Slugify;
@@ -33,6 +37,9 @@ public class Location {
     private String address;
     private String website;
     private String phone;
+
+    @OneToMany
+    private List<Show> shows = new ArrayList<>();
 
     protected Location(){}
 
@@ -96,9 +103,38 @@ public class Location {
         this.phone = phone;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-   
+    public List<Show> getShows() {
+		return shows;
+	}
+
+	public void setShows(List<Show> shows) {
+		this.shows = shows;
+	}
+	
+	public Location addShow(Show show) {
+		if(!this.shows.contains(show)) {
+			this.shows.add(show);
+			show.setLocation(this);
+		}
+		
+		return this;
+	}
+	
+	public Location removeShow(Show show) {
+		if(this.shows.contains(show)) {
+			this.shows.remove(show);
+			if(show.getLocation().equals(this)) {
+				show.setLocation(null);
+			}
+		}
+		
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		return "Location [id=" + id + ", slug=" + slug + ", designation=" + designation 
+			+ ", address=" + address	+ ", locality=" + locality + ", website=" 
+			+ website + ", phone=" + phone + ", shows=" + shows.size() + "]";
+	}   
 }
