@@ -13,7 +13,7 @@ public class ShowService {
 	private ShowRepository repository;
 	
 	
-	public List<Show> getAll() {
+	public List<Show> getAllShows() {
 		List<Show> shows = new ArrayList<>();
 		
 		repository.findAll().forEach(shows::add);
@@ -21,7 +21,7 @@ public class ShowService {
 		return shows;
 	}
 	
-	public Show get(String id) {
+	public Show getShow(String id) {
 		Long indice = (long) Integer.parseInt(id);
 		Optional<Show> show = repository.findById(indice); 
 		
