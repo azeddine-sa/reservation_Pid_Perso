@@ -10,7 +10,7 @@
                 <h1 th:text="${title}">Liste des rôles</h1>
         
                 <ul th:unless="${#lists.isEmpty(roles)}">
-                    <li th:each="role : ${roles}" th:text="${role.role}">Artists</li>
+                    <li th:each="role : ${roles}" th:text="${role.role}">Role</li>
                 </ul>
             </div>
         </div>
