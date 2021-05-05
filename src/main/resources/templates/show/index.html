@@ -10,7 +10,7 @@
                 <h1 th:text="${title}">Liste des spectacles</h1>
         
                 <ul th:unless="${#lists.isEmpty(shows)}">
-                    <li th:each="show : ${shows}" th:text="${show.show}">Spectacle</li>
+                    <li th:each="show : ${shows}" th:text="${show.title}">Spectacle</li>
                 </ul>
             </div>
         </div>

@@ -8,10 +8,6 @@
         <div class="container">
             <div layout:fragment="content">
                <h1 th:text="${show.title}">Le titre du spectacle</h1>
-                             
-               <ul th:unless="${#lists.isEmpty(show.shows)}">
-                   <li th:each="show : ${show.shows}" th:text="${show.show}">Spectacle</li>
-                  </ul>
             </div>
        </div>
     </body>
