@@ -16,7 +16,7 @@ public class ShowController {
     @Autowired
     ShowService service;
 
-    @GetMapping("/Shows")
+    @GetMapping("/shows")
     public String index2(Model model){
         List<Show> shows = service.getAllShows();
         
