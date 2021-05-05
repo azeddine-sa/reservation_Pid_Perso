@@ -28,15 +28,15 @@ public class ShowService {
 		return show.isPresent() ? show.get() : null;
 	}
 
-	public void add(Show show) {
+	public void addShow(Show show) {
 		repository.save(show);
 	}
 
-	public void update(String id, Show show) {
+	public void updateShow(String id, Show show) {
 		repository.save(show);
 	}
 
-	public void delete(String id) {
+	public void deleteShow(String id) {
 		Long indice = (long) Integer.parseInt(id);
 		
 		repository.deleteById(indice);
